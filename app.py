@@ -5,7 +5,7 @@ import pickle
 # Loading the adult income prediction model
 with open('model.pkl', 'rb') as file:
     model = pickle.load(file)
-
+    
 st.title('Adult Income Prediction')
 
 # Create a form for user input
@@ -75,8 +75,6 @@ if submitted:
               capital_gain, capital_loss, hpw, country, indian, asian, black, other, white,
               female, male]
     
-    print(person)
-
     df_person = pd.DataFrame([person], columns=feature_names)
     prediction = model.predict(df_person)  # Pass the input to your model's prediction function
     if prediction:
